@@ -1,0 +1,390 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Card Local Storage</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 05px;
+        box-sizing: border-box;
+    }
+    body {
+        height: 95vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: khaki;
+    }
+    .box {
+     border: 4px solid darkblue;
+    /* box-shadow: 4px 8px gray; */
+    }
+    ::placeholder {
+        padding-left: 50px;
+        
+    }
+    input[type="text"]:hover {
+        background: lightskyblue;
+    }
+    input[type="number"]:hover {
+        background: lightskyblue;
+    }
+    th {
+        padding-left: 80px;
+        font-size: 26px;
+        font-weight: 700;
+    }
+    #btng {
+        height: 40px;
+        width: 140px;
+        color: black;
+        font-size: 18px;
+        font-weight: 700;
+        background: darkolivegreen;
+        border: none;
+        margin-top: 10px;
+    }
+    #btnk {
+        height: 40px;
+        width: 140px;
+        color: black;
+        font-size: 18px;
+        font-weight: 700;
+        background: darkgreen;
+        border: none;
+        margin-top: 10px;
+    }
+    p {
+        font-size: 20px;
+        font-weight: 900;
+    }
+    .panel {
+        border: 4px solid darkblue;
+    }
+    b {
+        font-size: 22px;
+        font-weight: 700;
+    }
+    #tm {
+        border: 2px solid orangered;
+    }
+    #per {
+        border: 2px solid limegreen;
+    }
+    #ps {
+        font-size: 23px;
+        font-weight: 700;
+        color: blueviolet;
+    }
+    #pss {
+        font-size: 23px;
+        font-weight: 700;
+        color: blueviolet;
+    }
+    #gde {
+        font-size: 23px;
+        font-weight: 700;
+        color: lightcoral;
+    }
+    #grd {
+        font-size: 22px;
+        font-weight: 700;
+        color: brown;
+    }
+</style>
+<body>
+    <div class="box">
+        <h1 style="margin-left: 20px; font-size: 42px; font-weight: 900;">Progress Report</h1>
+        <form id="fr">
+            <table border="0px">
+                <tr>
+                    <td><label for="Roll No">Roll No :-</label></td>
+                    <td><input type="number" id="txt1" placeholder="Roll No"></td>
+                     </tr>
+                <tr>
+           <td><label for="name">Student Name :-</label></td>
+           <td><input type="text" id="txt2" placeholder="Student Name"></td>
+            </tr>
+
+            <tr>
+                <td><label for="class">Class :-</label></td>
+                <td><select id="sel3">
+                    <option>9th</option>
+                    <option>10th</option>
+                    <option>11th</option>
+                    <option>12th</option>
+                </td>
+                 </tr>
+
+                 <tr>
+                    <th align="center">Subjects</th>
+                    <tr>
+                        <td><label for="sub1">Hindi :-</label></td><td><input type="number" id="sub1" placeholder="Hindi"></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="sub2">English :-</label></td><td><input type="number" id="sub2" placeholder="English"></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="sub3">Maths :-</label></td><td><input type="number" id="sub3" placeholder="Maths"></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="sub4">Science :-</label></td><td><input type="number" id="sub4" placeholder="Science"></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="sub5">S.Study :-</label></td><td><input type="number" id="sub5" placeholder="S.Study"></td>
+                    </tr>
+
+                    <tr>
+                        <td><p>Total Marks(500) :-</p></td>
+                        <td><p id="tmm"></p></td>
+                    </tr>
+                    
+                 </tr>
+
+                 <tr>
+                    <td><p id="ps">Percentage :-</p></td>
+                    <td><p id="perc"></p></td>
+                </tr>
+
+                 <tr>
+                    <td><p id="gde">Grade :-</p></td>
+                    <td><p id="grdm"></p></td>
+                </tr>
+
+        </form>
+    </table>
+    </div><br/>
+    <div class="panel">
+    <form id="fs">
+        <table border="0px">
+            <tr>
+                <td><p>Roll No :-</p></td>
+                <td><p id="rs"></p></td>
+            </tr>
+
+            <tr>
+                <td><p>Student Name :-</p></td>
+                <td><p id="su"></p></td>
+            </tr>
+
+            <tr>
+                <td><p>Class :-</p></td>
+                <td><p id="ct"></p></td>
+            </tr><br/>
+
+            <tr><td><b>Subjects</b></td></tr>
+            <tr>
+                <td><p>Hindi :-</p></td>
+                <td><p id="hi"></p></td>
+            </tr>
+
+            <tr>
+                <td><p>English :-</p></td>
+                <td><p id="en"></p></td>
+            </tr>
+
+            <tr>
+                <td><p>Maths :-</p></td>
+                <td><p id="mb"></p></td>
+            </tr>
+
+            <tr>
+                <td><p>Science :-</p></td>
+                <td><p id="sc"></p></td>
+            </tr>
+
+            <tr>
+                <td><p>S.Study :-</p></td>
+                <td><p id="ssu"></p></td>
+            </tr>
+
+            <tr>
+                <td><p>Total Marks(500) :-</p></td>
+                <td><p id="tm"></p></td>
+            </tr>
+
+            <tr>
+                <td><p id="pss">Percentage :-</p></td>
+                <td><p id="per"></p></td>
+            </tr>
+
+             <tr>
+                <td><p>Grade :-</p></td>
+                <td><p id="grd"></p></td>
+            </tr>
+
+        </table>
+    </form>
+        
+    </div>
+    <button id="btng" onclick="getres()">Check Result</button>
+    <!-- <button id="btnk" onclick="getrest()">Get Result</button> -->
+    
+</body>
+<script>
+    
+    let rollno = document.getElementById("txt1");
+    let stname = document.getElementById("txt2");
+    let cls = document.getElementById("sel3");
+    let hindi = document.getElementById("sub1");
+    let english = document.getElementById("sub2");
+    let maths = document.getElementById("sub3");
+    let science = document.getElementById("sub4");
+    let sstudy = document.getElementById("sub5");
+    let rs = document.getElementById("rs");
+    let su = document.getElementById("su");
+    let ct = document.getElementById("ct");
+    let hi = document.getElementById("hi");
+    let en = document.getElementById("en");
+    let mb = document.getElementById("mb");
+    let sc = document.getElementById("sc");
+    let ssu = document.getElementById("ssu");
+    let tmm = document.getElementById("tmm");
+    let perc = document.getElementById("perc");
+    // let grade = ["A+","A","B+","B","C","D","E","F"];
+    let grade = document.getElementById("grdm");
+    document.querySelector("#fr").style.display="block";
+    document.querySelector("#fs").style.display="none";
+    document.querySelector(".panel").style.border="none";
+    document.querySelector("#tm").style.border="none";
+    document.querySelector("#per").style.border="none";
+    function getres() {
+        
+        rollno=document.getElementById("txt1").value;
+        localStorage.setItem("Roll No",rollno);
+        
+
+        stname = document.getElementById("txt2").value;
+        localStorage.setItem("Student Name",stname);
+        
+        
+        cls = document.getElementById("sel3").value;
+        localStorage.setItem("Class",cls);
+        
+
+        hindi = parseFloat(document.getElementById("sub1").value);
+        localStorage.setItem("Hindi",hindi);
+        
+
+        english = parseFloat(document.getElementById("sub2").value);
+        localStorage.setItem("English",english);
+        
+
+        maths = parseFloat(document.getElementById("sub3").value);
+        localStorage.setItem("Maths",maths);
+        
+
+        science = parseFloat(document.getElementById("sub4").value);
+        localStorage.setItem("Science",science);
+       
+
+        sstudy = parseFloat(document.getElementById("sub5").value);
+        localStorage.setItem("S.Study",sstudy);
+
+        tmm = parseInt(document.getElementById("tmm").value);
+        tmm = hindi+english+maths+science+sstudy;
+        localStorage.setItem("Total Marks",tmm);
+
+        perc = document.getElementById("perc").value;
+        perc = parseFloat(tmm)/5;
+        localStorage.setItem("Percentage",perc);
+
+        
+        let grade = "";
+
+        if ((perc<=100) && (perc>=90)) {
+            grade="A+";
+        }
+        else if ((perc<89) && (perc>=80)) {
+            grade="A";
+        }
+        else if ((perc<79) && (perc>=70)) {
+            grade="B+";
+        }
+        else if ((perc<69) && (perc>=60)) {
+            grade="B";
+        }
+        else if ((perc<59) && (perc>=50)) {
+            grade="C";
+        }
+        else if ((perc<49) && (perc>=40)) {
+            grade="D";
+        }
+        else if ((perc<39) && (perc>=33)) {
+            grade="E";
+        }
+        else{
+            grade="F";
+        }
+         
+       localStorage.setItem("Grade",grade);
+        
+        document.querySelector("#fr").style.display="none";
+        document.querySelector("#fs").style.display="block";
+        document.querySelector(".panel").style.border="4px solid darkblue";
+        document.querySelector("#tm").style.border="2px solid orangered";
+        document.querySelector("#per").style.border="2px solid limegreen";
+        document.querySelector("#grd").style.fontSize="28px";//use Camal case(2nd part) when there are a saparator in any css property.
+        document.querySelector("#grd").style.fontWeight="900";
+        // document.querySelector("#grd").style.color="darkblue";
+
+        rs = document.getElementById("rs").value;
+        localStorage.getItem("Roll No").innerHTML=rollno;
+        document.getElementById("rs").innerHTML=rollno;
+
+        su = document.getElementById("su").value;
+        localStorage.getItem("Student Name").innerHTML=stname;
+        document.getElementById("su").innerHTML=stname;
+
+        ct = document.getElementById("ct").value;
+        localStorage.getItem("Class").innerHTML=cls;
+        document.getElementById("ct").innerHTML=cls;
+
+        hi = document.getElementById("hi").value;
+        localStorage.getItem("Hindi").innerHTML=hindi;
+        document.getElementById("hi").innerHTML=hindi;
+
+        en = document.getElementById("en").value;
+        localStorage.getItem("English").innerHTML=english;
+        document.getElementById("en").innerHTML=english;
+
+        mb = document.getElementById("mb").value;
+        localStorage.getItem("Maths").innerHTML=maths;
+        document.getElementById("mb").innerHTML=maths;
+
+        sc = document.getElementById("sc").value;
+        localStorage.getItem("Science").innerHTML=science;
+        document.getElementById("sc").innerHTML=science;
+
+        ssu = document.getElementById("ssu").value;
+        localStorage.getItem("S.Study").innerHTML=sstudy;
+        document.getElementById("ssu").innerHTML=sstudy;
+
+        tm = document.getElementById("tm").value;
+        localStorage.getItem("Total Marks").innerHTML=tmm;
+        document.getElementById("tm").innerHTML=tmm;
+
+        per = document.getElementById("per").value;
+        localStorage.getItem("Percentage").innerHTML=perc;
+        document.getElementById("per").innerHTML=perc+"%";
+
+        grd = document.getElementById("grd").value;
+        localStorage.getItem("Grade").innerHTML=grade;
+        document.getElementById("grd").innerHTML=grade;
+    }
+    // function getrest() {
+    //  let rollno = document.getElementById("txt1");
+    //     // document.querySelector("form").style.display="block";
+    //      document.querySelector("txt1").localStorage.getItem("Roll No").innerHTML=rollno;
+    // }
+</script>
+</html>
